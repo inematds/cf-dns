@@ -1,5 +1,7 @@
 # 🌐 cf-dns
 
+**🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
+
 Registro de DNS no **Cloudflare** pela linha de comando — um arquivo Python, zero dependências.
 
 ## 📖 Guia de uso

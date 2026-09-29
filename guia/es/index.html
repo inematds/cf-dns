@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR">
+<html lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>cf-dns — DNS do Cloudflare pela linha de comando</title>
-<meta content="CLI em Python puro para criar, listar e apagar registros DNS no Cloudflare — inclui o par CNAME+TXT que o Vercel exige." name="description"/>
+<title>cf-dns — DNS de Cloudflare desde la línea de comandos</title>
+<meta content="CLI en Python puro para crear, listar y borrar registros DNS en Cloudflare; incluye el par CNAME+TXT que exige Vercel." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
@@ -92,7 +92,7 @@
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
 </style>
 <link href="https://inematds.github.io/cf-dns/guia/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/cf-dns/guia/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/cf-dns/guia/es/" hreflang="es" rel="alternate"/></head>
-<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="./" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="es/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
 <nav><div class="wrap">
 <a class="brand" href="#top"><span class="emoji">🌐</span> cf-dns</a>
 <span class="sep">|</span>
@@ -102,13 +102,13 @@
 <a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a>
 </span>
 <div class="links">
-<a class="sec" href="#oque">O que é</a>
-<a class="sec" href="#fluxo">Como funciona</a>
-<a class="sec" href="#pre">Pré-requisitos</a>
-<a class="sec" href="#guia">Guia de uso</a>
-<a class="sec" href="#exemplos">Exemplos</a>
-<a class="sec" href="#roadmap">Roadmap</a>
-<button aria-label="Alternar tema" class="tgl" id="themeToggle" title="Alternar tema">🌙</button>
+<a class="sec" href="#oque">Qué es</a>
+<a class="sec" href="#fluxo">Cómo funciona</a>
+<a class="sec" href="#pre">Requisitos previos</a>
+<a class="sec" href="#guia">Guía de uso</a>
+<a class="sec" href="#exemplos">Ejemplos</a>
+<a class="sec" href="#roadmap">Hoja de ruta</a>
+<button aria-label="Cambiar tema" class="tgl" id="themeToggle" title="Cambiar tema">🌙</button>
 <a class="btn" href="https://github.com/inematds/cf-dns" rel="noopener" target="_blank">GitHub</a>
 </div>
 </div></nav>
@@ -117,133 +117,133 @@
 <div class="wrap">
 <div>
 <span class="chip">CLI · Cloudflare DNS</span>
-<h1>Registro de DNS em <span class="amb">um comando</span> — sem abrir o painel.</h1>
-<p class="lead">Um script Python de arquivo único que cria, lista e apaga registros no Cloudflare pela API. Inclui o par CNAME + TXT que o Vercel pede para verificar um subdomínio novo.</p>
+<h1>Registro DNS en <span class="amb">un comando</span> — sin abrir el panel.</h1>
+<p class="lead">Un script de Python en un solo archivo que crea, lista y elimina registros en Cloudflare mediante la API. Incluye el par CNAME + TXT que Vercel solicita para verificar un subdominio nuevo.</p>
 <div class="cta">
-<a class="btn" href="#guia">Começar o guia</a>
-<a class="btn ghost" href="https://github.com/inematds/cf-dns" rel="noopener" target="_blank">Ver no GitHub</a>
+<a class="btn" href="#guia">Empezar la guía</a>
+<a class="btn ghost" href="https://github.com/inematds/cf-dns" rel="noopener" target="_blank">Ver en GitHub</a>
 </div>
 </div>
-<figure><img alt="cf-dns — DNS do Cloudflare pela linha de comando" src="assets/hero.png"/></figure>
+<figure><img alt="cf-dns — DNS de Cloudflare desde la línea de comandos" src="../assets/hero.png"/></figure>
 </div>
 </header>
 <section id="oque"><div class="wrap">
-<span class="chip">O que é</span>
-<h2>Um arquivo, zero dependências</h2>
-<p class="sub">O painel do Cloudflare é ótimo para olhar e péssimo para repetir. Este script faz a mesma coisa por API, do jeito que dá para versionar, revisar e rodar de novo amanhã.</p>
+<span class="chip">Qué es</span>
+<h2>Un archivo, cero dependencias</h2>
+<p class="sub">El panel de Cloudflare es excelente para consultar y pésimo para repetir. Este script hace lo mismo mediante la API, de una forma que puedes versionar, revisar y volver a ejecutar mañana.</p>
 <div class="grid g3">
-<div class="card"><h3>📦 Só a stdlib do Python 3</h3><p>Nada de <code>pip install</code>. Copie o <code>cf-dns.py</code> para qualquer máquina com Python 3 e ele roda — servidor novo, container, VPS recém-criada.</p></div>
-<div class="card"><h3>🔑 Token fora do código</h3><p>A credencial vem da variável <code>CLOUDFLARE_API_TOKEN</code> ou de um <code>.env</code> apontado por <code>CF_ENV_FILE</code>. Nenhum segredo mora no repositório.</p></div>
-<div class="card"><h3>▲ Atalho para o Vercel</h3><p>O subcomando <code>vercel</code> cria o CNAME e o TXT de verificação de uma vez, já com o proxy desligado — que é o detalhe que costuma travar a verificação.</p></div>
+<div class="card"><h3>📦 Solo la biblioteca estándar de Python 3</h3><p>Nada de <code>pip install</code>. Copia el <code>cf-dns.py</code> para cualquier máquina con Python 3 y funciona — servidor nuevo, contenedor, VPS recién creada.</p></div>
+<div class="card"><h3>🔑 Token fuera del código</h3><p>La credencial viene de la variable <code>CLOUDFLARE_API_TOKEN</code> o de un <code>.env</code> apuntado por <code>CF_ENV_FILE</code>. No hay ningún secreto en el repositorio.</p></div>
+<div class="card"><h3>▲ Acceso directo a Vercel</h3><p>El subcomando <code>vercel</code> crea el CNAME y el TXT de verificación de una vez, con el proxy desactivado desde el inicio — ese es el detalle que suele bloquear la verificación.</p></div>
 </div>
 </div></section>
 <section id="fluxo"><div class="wrap">
-<span class="chip">Como funciona</span>
-<h2>Três chamadas à API, na ordem certa</h2>
-<p class="sub">Não há mágica: o script conversa com a API v4 do Cloudflare. O que ele adiciona é a ordem segura — olhar antes de escrever.</p>
+<span class="chip">Cómo funciona</span>
+<h2>Tres llamadas a la API, en el orden correcto</h2>
+<p class="sub">No hay magia: el script se comunica con la API v4 de Cloudflare. Lo que agrega es un orden seguro: mirar antes de escribir.</p>
 <div class="flow">
-<span>Lê o token</span><span class="arr">→</span>
-<span>Descobre o zone_id</span><span class="arr">→</span>
-<span>Lista o que já existe</span><span class="arr">→</span>
-<span>Cria / apaga</span><span class="arr">→</span>
-<span>Confere</span>
+<span>Lee el token</span><span class="arr">→</span>
+<span>Descubre el zone_id</span><span class="arr">→</span>
+<span>Lista lo que ya existe</span><span class="arr">→</span>
+<span>Crear / borrar</span><span class="arr">→</span>
+<span>Verificar</span>
 </div>
 <div class="grid g3" style="margin-top:26px">
-<div class="card"><h3>Achar a zona</h3><p><code>GET /zones?name=&lt;dominio&gt;</code> devolve o <code>zone_id</code>. Todo registro pendura nesse id — é sempre o primeiro passo.</p></div>
-<div class="card"><h3>Olhar antes de escrever</h3><p><code>GET /zones/&lt;id&gt;/dns_records?name=…</code> mostra o que já está lá. É o que evita descobrir um conflito só depois de quebrar o site.</p></div>
-<div class="card"><h3>Escrever</h3><p><code>POST</code> cria e <code>DELETE /dns_records/&lt;record_id&gt;</code> remove. O <code>list</code> imprime o id de cada registro, que é o que o <code>delete</code> consome.</p></div>
+<div class="card"><h3>Buscar la zona</h3><p><code>GET /zones?name=&lt;dominio&gt;</code> devuelve el <code>zone_id</code>. Todo registro depende de ese id: siempre es el primer paso.</p></div>
+<div class="card"><h3>Mirar antes de escribir</h3><p><code>GET /zones/&lt;id&gt;/dns_records?name=…</code> muestra lo que ya está ahí. Así evitas descubrir un conflicto solo después de que el sitio deje de funcionar.</p></div>
+<div class="card"><h3>Escribir</h3><p><code>POST</code> crea y <code>DELETE /dns_records/&lt;record_id&gt;</code> elimina. El <code>list</code> imprime el id de cada registro, que es lo que el <code>delete</code> consume.</p></div>
 </div>
 </div></section>
 <section id="pre"><div class="wrap">
-<span class="chip">Pré-requisitos</span>
-<h2>Um token e Python — só isso</h2>
-<p class="sub">Não há serviço para subir, nem daemon, nem banco. O script é stateless: cada execução é uma conversa curta com a API.</p>
+<span class="chip">Requisitos previos</span>
+<h2>Un token y Python; nada más</h2>
+<p class="sub">No hay ningún servicio que poner en marcha, ni daemon ni base de datos. El script es stateless: cada ejecución es una conversación breve con la API.</p>
 <div class="grid g3">
-<div class="card"><h3>Python 3</h3><p>Qualquer versão 3.x que sua distro trouxer. Nenhum pacote externo é importado.</p><pre><span class="c"># conferir</span>
+<div class="card"><h3>Python 3</h3><p>Cualquier versión 3.x que incluya tu distribución. No se importa ningún paquete externo.</p><pre><span class="c"># verificar</span>
 <span class="k">python3</span> --version</pre></div>
-<div class="card"><h3>API Token do Cloudflare</h3><p>No painel: <strong>My Profile → API Tokens → Create Token</strong>, template <em>Edit zone DNS</em>. Permissão <code>Zone → DNS → Edit</code> nas zonas que você vai mexer. O token aparece uma única vez.</p><pre><span class="c"># guardar fora do git</span>
+<div class="card"><h3>API Token de Cloudflare</h3><p>En el panel: <strong>My Profile → API Tokens → Create Token</strong>, plantilla <em>Edit zone DNS</em>. Permiso <code>Zone → DNS → Edit</code> en las zonas que vas a modificar. El token aparece una sola vez.</p><pre><span class="c"># guardar fuera de git</span>
 <span class="k">echo</span> <span class="s">'CLOUDFLARE_API_TOKEN=SEU_TOKEN'</span> &gt;&gt; ~/.env
 <span class="k">chmod</span> 600 ~/.env</pre></div>
-<div class="card"><h3>O domínio no Cloudflare</h3><p>A zona precisa já estar na conta e o token precisa enxergá-la. Se não enxergar, o script diz isso em vez de falhar em silêncio.</p><pre><span class="c"># teste de fumaça</span>
+<div class="card"><h3>El dominio en Cloudflare</h3><p>La zona ya debe estar en la cuenta y el token debe tener acceso a ella. Si no lo tiene, el script lo indica en lugar de fallar en silencio.</p><pre><span class="c"># prueba de humo</span>
 <span class="k">./cf-dns.py</span> list inema.club</pre></div>
 </div>
 </div></section>
 <section id="guia"><div class="wrap">
-<span class="chip">Guia de uso · passo a passo</span>
-<h2>Do clone ao registro no ar</h2>
-<p class="sub">Cinco passos. O quarto é o que você vai repetir sempre.</p>
+<span class="chip">Guía de uso · paso a paso</span>
+<h2>Del clon al registro activo</h2>
+<p class="sub">Cinco pasos. El cuarto es el que vas a repetir siempre.</p>
 <div class="step"><div class="b">1</div><div>
-<h3>Instale numa máquina nova</h3>
-<p>O repositório inteiro é o script mais a documentação. Copie o arquivo para onde seu <code>$PATH</code> alcança.</p>
+<h3>Instálalo en una máquina nueva</h3>
+<p>El repositorio entero es el script más la documentación. Copia el archivo donde tu <code>$PATH</code> alcanza.</p>
 <pre><span class="k">git</span> clone <span class="s">https://github.com/inematds/cf-dns</span>
 <span class="k">install</span> -m 755 cf-dns/cf-dns.py ~/bin/cf-dns.py</pre>
 </div></div>
 <div class="step"><div class="b">2</div><div>
-<h3>Aponte o token</h3>
-<p>Duas formas: variável de ambiente, ou um arquivo <code>.env</code> indicado por <code>CF_ENV_FILE</code>. Sem nenhuma das duas, o script recusa e explica o motivo.</p>
-<pre><span class="c"># variável de ambiente</span>
+<h3>Indica el token</h3>
+<p>Dos formas: variable de entorno o un archivo <code>.env</code> indicado por <code>CF_ENV_FILE</code>. Sin ninguna de las dos, el script se niega y explica el motivo.</p>
+<pre><span class="c"># variable de entorno</span>
 <span class="k">export</span> CLOUDFLARE_API_TOKEN=<span class="s">seu_token</span>
 
-<span class="c"># ou apontando um arquivo</span>
+<span class="c"># o apuntando a un archivo</span>
 <span class="k">export</span> CF_ENV_FILE=<span class="s">~/.env</span></pre>
 </div></div>
 <div class="step"><div class="b">3</div><div>
-<h3>Olhe antes de mexer</h3>
-<p>Sempre. O <code>list</code> mostra tipo, nome, valor, estado do proxy e o <strong>id</strong> de cada registro — e é assim que você descobre um A ocupando o host que você ia usar.</p>
-<pre><span class="k">./cf-dns.py</span> list inema.club          <span class="c"># a zona inteira</span>
-<span class="k">./cf-dns.py</span> list inema.club dlp2     <span class="c"># só um nome</span></pre>
+<h3>Mira antes de modificar</h3>
+<p>Siempre. El <code>list</code> muestra el tipo, el nombre, el valor, el estado del proxy y el <strong>id</strong> de cada registro — y así descubres si hay un A ocupando el host que ibas a usar.</p>
+<pre><span class="k">./cf-dns.py</span> list inema.club          <span class="c"># toda la zona</span>
+<span class="k">./cf-dns.py</span> list inema.club dlp2     <span class="c"># solo un nombre</span></pre>
 </div></div>
 <div class="step"><div class="b">4</div><div>
-<h3>Crie o registro</h3>
-<p>O nome pode ser o subdomínio puro (<code>rede</code>) ou o domínio completo. O TTL padrão é 60 segundos — bom enquanto algo está sendo verificado.</p>
-<pre><span class="c"># A apontando pra um IP</span>
+<h3>Crea el registro</h3>
+<p>El nombre puede ser el subdominio puro (<code>rede</code>) o el dominio completo. El TTL predeterminado es de 60 segundos: útil mientras se verifica algo.</p>
+<pre><span class="c"># A apuntando a una IP</span>
 <span class="k">./cf-dns.py</span> add inema.club A rede <span class="s">192.168.2.99</span>
 
-<span class="c"># CNAME com TTL maior</span>
+<span class="c"># CNAME con TTL más alto</span>
 <span class="k">./cf-dns.py</span> add inema.club CNAME app <span class="s">destino.exemplo.com</span> --ttl=300
 
-<span class="c"># com o proxy laranja ligado (só quando fizer sentido)</span>
+<span class="c"># con el proxy naranja activado (solo cuando tenga sentido)</span>
 <span class="k">./cf-dns.py</span> add inema.club A site <span class="s">203.0.113.10</span> --proxied</pre>
 </div></div>
 <div class="step"><div class="b">5</div><div>
-<h3>Apague quando precisar</h3>
-<p>O <code>delete</code> usa o id que o <code>list</code> imprimiu — não o nome. É proposital: você tem que ver o registro antes de removê-lo.</p>
+<h3>Bórralo cuando lo necesites</h3>
+<p>O <code>delete</code> usa el id que el <code>list</code> imprimió — no el nombre. Es intencional: tienes que ver el registro antes de eliminarlo.</p>
 <pre><span class="k">./cf-dns.py</span> list   inema.club dlp2
 <span class="k">./cf-dns.py</span> delete inema.club <span class="s">76d14e9482f4b03f9d05a3c643f6cca7</span></pre>
 </div></div>
 </div></section>
 <section id="exemplos"><div class="wrap">
-<span class="chip">Exemplos</span>
-<h2>Os dois casos que aparecem toda semana</h2>
-<p class="sub">Comandos reais, tirados de uso de verdade nos domínios do INEMA.</p>
+<span class="chip">Ejemplos</span>
+<h2>Los dos casos que aparecen todas las semanas</h2>
+<p class="sub">Comandos reales, tomados del uso real en los dominios de INEMA.</p>
 <div class="step"><div class="b">▲</div><div>
-<h3>Subdomínio novo no Vercel</h3>
-<p>O Vercel pede duas coisas: um CNAME apontando pro <code>vercel-dns</code> e um TXT em <code>_vercel</code> provando que o domínio é seu. O subcomando <code>vercel</code> faz as duas, já com <strong>proxy desligado</strong> — com o proxy ligado a verificação não passa.</p>
+<h3>Subdominio nuevo en Vercel</h3>
+<p>Vercel pide dos cosas: un CNAME que apunte a <code>vercel-dns</code> y un TXT en <code>_vercel</code> demostrando que el dominio es tuyo. El subcomando <code>vercel</code> hace ambas cosas, ya con <strong>proxy desactivado</strong> — con el proxy activado, la verificación no pasa.</p>
 <pre><span class="k">./cf-dns.py</span> vercel inema.club dlp2 \
   <span class="s">820ed52053a39f8f.vercel-dns-017.com</span> \
   <span class="s">vc-domain-verify=dlp2.inema.club,5bc6ac41fe34ada1f4f9</span></pre>
-<p>Vários TXT em <code>_vercel</code> convivem sem problema — um por subdomínio. Depois que o Vercel fica verde, o TXT daquele subdomínio pode sair.</p>
+<p>Varios TXT en <code>_vercel</code> conviven sin problema — uno por subdominio. Cuando Vercel esté en verde, puedes quitar el TXT de ese subdominio.</p>
 </div></div>
 <div class="step"><div class="b">🏠</div><div>
-<h3>Nome interno para um IP da LAN</h3>
-<p>Dá para usar DNS público apontando para IP privado — resolve só para quem está na rede (ou na VPN). O proxy tem que ficar desligado: o Cloudflare não proxia endereço privado.</p>
+<h3>Nombre interno para una IP de la LAN</h3>
+<p>Puedes usar DNS público que apunte a una IP privada: solo se resuelve para quienes están en la red (o en la VPN). El proxy debe estar desactivado: Cloudflare no aplica proxy a direcciones privadas.</p>
 <pre><span class="k">./cf-dns.py</span> add inema.club A rede <span class="s">192.168.2.99</span>
 <span class="c"># -&gt; rede.inema.club responde 192.168.2.99 dentro da LAN</span></pre>
 </div></div>
 </div></section>
 <section id="roadmap"><div class="wrap">
-<span class="chip">Roadmap</span>
-<h2>Onde está e o que falta</h2>
-<p class="sub">A ferramenta é pequena de propósito: um arquivo que cabe na cabeça e que você lê inteiro antes de confiar nela.</p>
-<div class="phase"><div class="tag">Feito</div><div class="d"><strong>list · add · delete · vercel</strong><span>Os quatro subcomandos cobrem o uso do dia a dia. Erros da API vêm em JSON e são impressos como estão, sem tradução que esconda a causa.</span></div></div>
-<div class="phase"><div class="tag">Feito</div><div class="d"><strong>Token nunca no repositório</strong><span>Vem do ambiente ou de um <code>.env</code>. O script não imprime o valor em lugar nenhum, nem em mensagem de erro.</span></div></div>
-<div class="phase"><div class="tag">Por convenção</div><div class="d"><strong>Olhar antes de escrever</strong><span>Rode <code>list</code> antes de qualquer alteração e anote o valor antigo antes de apagar. Um A e um CNAME não podem coexistir no mesmo host — trocar um pelo outro derruba o que estava lá.</span></div></div>
-<div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Modo <code>--dry-run</code></strong><span>Imprimir a chamada que seria feita sem executá-la, para revisar mudança em lote antes de aplicar.</span></div></div>
+<span class="chip">Hoja de ruta</span>
+<h2>Dónde está y qué falta</h2>
+<p class="sub">La herramienta es pequeña a propósito: un archivo que puedes abarcar de un vistazo y leer completo antes de confiar en él.</p>
+<div class="phase"><div class="tag">Listo</div><div class="d"><strong>list · add · delete · vercel</strong><span>Los cuatro subcomandos cubren el uso diario. Los errores de la API vienen en JSON y se imprimen tal cual, sin traducciones que oculten la causa.</span></div></div>
+<div class="phase"><div class="tag">Listo</div><div class="d"><strong>El token nunca va en el repositorio</strong><span>Proviene del entorno o de un <code>.env</code>. El script no imprime el valor en ningún sitio, ni siquiera en un mensaje de error.</span></div></div>
+<div class="phase"><div class="tag">Por convención</div><div class="d"><strong>Mirar antes de escribir</strong><span>Ejecuta <code>list</code> antes de cualquier cambio y anota el valor anterior antes de eliminarlo. Un A y un CNAME no pueden coexistir en el mismo host: cambiar uno por el otro hace que lo que estaba allí deje de funcionar.</span></div></div>
+<div class="phase"><div class="tag">Siguiente</div><div class="d"><strong>Modo <code>--dry-run</code></strong><span>Imprime la llamada que se haría sin ejecutarla, para revisar un cambio por lotes antes de aplicarlo.</span></div></div>
 </div></section>
 <footer>
 <div class="wrap">
-<div class="pill">Python 3 (stdlib)</div><div class="pill">Cloudflare API v4</div><div class="pill">Zero dependências</div><div class="pill">CLI</div>
-<p style="margin-top:18px">cf-dns · DNS do Cloudflare pela linha de comando ·
+<div class="pill">Python 3 (stdlib)</div><div class="pill">Cloudflare API v4</div><div class="pill">Cero dependencias</div><div class="pill">CLI</div>
+<p style="margin-top:18px">cf-dns · DNS de Cloudflare desde la línea de comandos ·
       <a href="https://github.com/inematds/cf-dns">inematds/cf-dns</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
 </div>
